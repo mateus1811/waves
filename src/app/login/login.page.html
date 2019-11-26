@@ -1,0 +1,20 @@
+<ion-header style="color: aqua">
+  <ion-toolbar  style="color: aqua">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/img/waves.png" alt="some text" width="375" height="350">
+  <ion-item>
+    <ion-label position="floating" style="color: aqua" >Email</ion-label>
+    <ion-input name="loginInput" [(ngModel)]="email"  style="color: ivory"  ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"  style="color: aqua">Senha</ion-label>
+    <ion-input name="passwordInput" [(ngModel)]="password" style="color: ivory" ></ion-input>
+  </ion-item>
+
+  <ion-button [disabled]="!email || !password" (click)="paginaInicial()" expand="block" color="light">ENTRAR</ion-button>
+  <ion-button (click)="cadastro()" expand="block" color="light">CADASTRAR-SE</ion-button>
+</ion-content>

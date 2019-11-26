@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>WAVES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-padding">
+
+        <div >
+          <h2 style="color: aqua">MUSICA</h2>
+          <ion-list inset>
+            <ion-item>
+            <input [(ngModel)]="newMusica.name" placeholder="Digite aqui o nome da musica..." 
+            type="text" name="nome" style="color: aqua" required>
+            </ion-item>
+            <ion-item>
+            <input [(ngModel)]="newMusica.artista" placeholder="Digite aqui o cantor da musica..." 
+            type="text" name="cantor" style="color: aqua" required> 
+            </ion-item>
+            <ion-item>
+            <input [(ngModel)]="newMusica.album" placeholder="Digite aqui o album da musica..." 
+            type="text" name="allbum" style="color: aqua" required>
+            </ion-item>
+            <ion-item>
+            <input [(ngModel)]="newMusica.duracao" placeholder="Digite aqui a duracao da musica..." 
+            type="text" name="duracao" style="color: aqua" required>
+            </ion-item>
+            <ion-item>
+              <input [(ngModel)]="newMusica.genero" placeholder="Digite aqui o gênero da musica..." 
+              type="text" name="genero" style="color: aqua" required>
+              </ion-item>
+          </ion-list>
+          <button [disabled]="!newMusica.name || !newMusica.artista || !newMusica.album || !newMusica.duracao || !newMusica.genero" class="btn btn-primary btn-block" (click)="adicionarMusicas()" >Adicionar</button>
+        </div>
+        <br>
+    
+        <table *ngIf="lista.length > 0" class="striped">
+          <thead>
+            <tr>
+                <th style="color: aqua">Nome</th>
+                <th style="color: aqua">Artista</th>
+                <th style="color: aqua">genero</th>
+                <th style="color: aqua">Remover</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr *ngFor="let musica of lista">
+              <td>
+                <input *ngIf="musica.isEditing" type="text" [(ngModel)]="musica.name">
+                <span *ngIf="!musica.isEditing" >{{musica.name}}</span>
+              </td>
+              <td>
+                  <input *ngIf="musica.isEditing" type="text" [(ngModel)]="musica.artista">
+                  <span *ngIf="!musica.isEditing" >{{musica.artista}}</span>
+                </td>
+                <td>
+                  <input *ngIf="musica.isEditing" type="text" [(ngModel)]="musica.genero">
+                  <span *ngIf="!musica.isEditing" >{{musica.genero}}</span>
+                </td>
+              <td>
+    
+                
+                  <i *ngIf="!musica.isEditing" (click)="edit(musica)" class="material-icons" style="text-align: center; color: aqua; margin-right: 5px;">edit</i> 
+                  <i *ngIf="!musica.isEditing" (click)="remove(musica.uid)" class="material-icons" style="text-align: center; color: white;">delete</i>
+    
+                  <i *ngIf="musica.isEditing" (click)="confirmEdit(musica)" class="material-icons" style="text-align: center; color: aqua; margin-right: 5px;">done</i> 
+                  <i *ngIf="musica.isEditing" (click)="cancelEdit(musica)" class="material-icons" style="text-align: center; color: white;">cancel</i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    
+        <p *ngIf="lista.length == 0"><i class="material-icons">mood_bad</i> Não há músicas cadastradas.</p>
+    
+    
+    
+    
+    
+    
+    
+    
+      </div>
+</ion-content>

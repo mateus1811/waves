@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      WAVES
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+    <div >
+      <h2 style="color: aqua">CADASTRE-SE</h2>
+      <ion-list inset>
+        <ion-item>
+        <input [(ngModel)]="newUser.name" placeholder="Digite aqui o seu nome..." 
+        type="text" name="nome" style="color: aqua" required>
+        </ion-item>
+        <ion-item>
+        <input [(ngModel)]="newUser.email" placeholder="Digite aqui o seu email..." 
+        type="email" name="" style="color: aqua" required> 
+        </ion-item>
+        <ion-item>
+        <input [(ngModel)]="newUser.senha" placeholder="Digite aqui a sua senha..." 
+        type="password" name="senha" style="color: aqua" required>
+        </ion-item> 
+        
+      
+      </ion-list>
+  
+      
+
+      <button [disabled]="!newUser.name || !newUser.email || !newUser.senha" class="btn btn-primary btn-block" (click)="adicionarUsuario()" >Cadastrar</button>
+    </div>
+    <br>
+
+    
+  </div>
+</ion-content>
